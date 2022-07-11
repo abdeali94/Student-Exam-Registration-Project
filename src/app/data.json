@@ -1,0 +1,70 @@
+{
+  "student_data": [
+    {
+      "studname": "Atul Dokania",
+      "studcode": "9865",
+      "exam": "Chemistry",
+      "date": "2022-06-28",
+      "time": "10:40",
+      "email": "atul@outlook.com",
+      "mobile": "9809876555",
+      "id": 2
+    },
+    {
+      "studname": "Angad Chopra",
+      "studcode": "7653",
+      "exam": "Sanskrit",
+      "date": "2022-08-03",
+      "time": "10:00",
+      "email": "angad@gmail.com",
+      "mobile": "7655555000",
+      "id": 3
+    },
+    {
+      "studname": "Salman Khan",
+      "studcode": "4250",
+      "exam": "English",
+      "date": "2022-06-30",
+      "time": "16:00",
+      "email": "salman@yahoo.co.in",
+      "mobile": "9087646255",
+      "id": 4
+    },
+    {
+      "studname": "Virat Kohli",
+      "studcode": "5643",
+      "exam": "Moral Science",
+      "date": "2022-06-26",
+      "time": "10:30",
+      "email": "virat@outlook.com",
+      "mobile": "9007654387",
+      "id": 6
+    },
+    {
+      "studname": "Islam Khan",
+      "studcode": "1365",
+      "exam": "History and Civics",
+      "date": "2022-06-30",
+      "time": "10:00",
+      "email": "islam@gmail.com",
+      "mobile": "9876500076",
+      "id": 7
+    },
+    {
+      "studname": "Sonali Sharma",
+      "studcode": "7634",
+      "exam": "English",
+      "date": "2022-06-22",
+      "time": "10:30",
+      "email": "sonali@hotmail.com",
+      "mobile": "7896544356",
+      "id": 8
+    }
+  ],
+  "admin_data": [
+    {
+      "uname": "admin",
+      "pwd": "pass1234"
+    }
+  ]
+}

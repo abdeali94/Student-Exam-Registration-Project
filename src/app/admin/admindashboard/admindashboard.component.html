@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #dcae1d;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Student Exam Registration</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="d-flex" role="search">
+            <button class="btn btn-outline-dark" type="submit" style="margin-left:950px;" (click)="logout()">Logout</button>
+          </form>
+      </div>
+    </div>
+  </nav>
+  <div style="background-color:#cae4db;width:100vw;height:100vh;">
+  <h3 style="text-align:center; padding-top: 70px; padding-bottom: 40px;">STUDENT EXAM LIST</h3>
+  <div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+        <th class="text-center"><h5> S.No. </h5></th>
+        <th class="text-center"><h5> Student Name </h5></th>
+        <th class="text-center"><h5> Student Code </h5></th>
+        <th class="text-center"><h5> Exam Topic </h5></th>
+        <th class="text-center"><h5> Date </h5></th>
+        <th class="text-center"><h5> Time </h5></th>
+        <th class="text-center"><h5> Email </h5></th>
+        <th class="text-center"><h5> Mobile </h5></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let s of studList; let i = index;">
+        <td>{{ i+1 }}</td>
+        <td>{{s.studname}}</td>
+        <td>{{s.studcode}}</td>
+        <td>{{s.exam}}</td>
+        <td>{{s.date}}</td>
+        <td>{{s.time}}</td>
+        <td>{{s.email}}</td>
+        <td>{{s.mobile}}</td>
+        <td>
+          <button class="btn btn-danger" type="button" (click)="sendtoUpdate(s)">Edit</button>&nbsp;
+          <button class="btn btn-danger" type="button" (click)="delete_user(s.id)">Delete</button>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+
+      <div class="modal" tabindex="-1" [ngStyle]="{'display':displayStyle}">
+          <div class="modal-dialog" role="document">
+	            <div class="modal-content">
+	               <div class="modal-header">
+		                   <h4 class="modal-title">Edit Student Details</h4>
+	               </div>
+	               <div class="modal-body">
+                    <div class="container">
+                    
+                      <div class="row" style="text-align: center;">
+                      <div class="d-flex justify-content-center flex-nowrap">
+                      <form #useredit = "ngForm" (ngSubmit) = "Edit(useredit.value)">
+                      <div class="form-group">
+                        <label>Student Name</label>
+                        <div class="col-lg-12">
+                        <input class="form-control" type = "text" pattern="[a-zA-Z\s]+$" #t1="ngModel" required name = "t1" [(ngModel)]="stuname" placeholder = "Student Name" ngModel>
+                        <span *ngIf="t1.invalid && t1.touched" style="color: red;">Please enter a valid input</span>
+                      </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label>Student Code (4 Digits only)</label>
+                        <div class="col-lg-12">
+                     <input class="form-control" type = "text" #t2="ngModel" maxlength="4" pattern= "[0-9]+$" required name = "t2" [(ngModel)]="stucode" placeholder = "Student Code" ngModel>
+                     <span *ngIf="t2.invalid && t2.touched" style="color: red;">Please enter a valid input</span>
+                    </div>
+                     </div>
+                     <br>
+                     <div class="form-group">
+                        <label>Exam Topic</label>
+                        <div class="col-lg-12">
+                        <input class="form-control" #t3="ngModel" type = "text" pattern="[a-zA-Z\s]+$" required name = "t3" [(ngModel)]="examtpc" placeholder = "Exam Topic" ngModel>
+                        <span *ngIf="t3.invalid && t3.touched" style="color: red;">Please enter a valid input</span>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <div class="col-lg-12">
+                      <input class="form-control" #t4="ngModel" type = "date" required name = "t4" [(ngModel)]="dte" placeholder = "Date" ngModel>
+                      <span *ngIf="t4.invalid && t4.touched" style="color: red;">Please enter a valid input</span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label>Time</label>
+                    <div class="col-lg-12">
+                      <input class="form-control" #t5="ngModel" type = "time" required name = "t5" [(ngModel)]="tme" placeholder = "Time" ngModel>
+                      <span *ngIf="t5.invalid && t5.touched" style="color: red;">Please enter a valid input</span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label>Email</label>
+                    <div class="col-lg-12">
+                      <input class="form-control" #t6="ngModel" type = "email" email required name = "t6" [(ngModel)]="email" placeholder = "Email" ngModel>
+                      <span *ngIf="t6.invalid && t6.touched" style="color: red;">Please enter a valid input</span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label>Mobile (10 Digits only)</label>
+                    <div class="col-lg-12">
+                      <input class="form-control" #t7="ngModel" type = "text" maxlength="10" pattern= "[0-9]+$" required name = "t7" [(ngModel)]="mob" placeholder = "Mobile" ngModel>
+                      <span *ngIf="t7.invalid && t7.touched" style="color: red;">Please enter a valid input</span>
+                    </div>
+                  </div>
+                      <br/>
+                     <input class="btn btn-danger" type = "submit" value = "Update" [disabled]="useredit.invalid">&nbsp;
+                     <input class="btn btn-danger" type = "button" value = "Close" (click)="close()">
+                    </form>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+	            </div>
+          </div>
+     </div>
+
+</div>
+
